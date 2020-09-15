@@ -1,0 +1,41 @@
+{
+  "name": "discordbot-template",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Discord bot template made in TypeScript with discord.js",
+  "repository": "https://github.com/Hazmi35/discordbot-template",
+  "license": "AGPL-3.0",
+  "author": "Hazmi35 <contact@hzmi.xyz>",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "yarn run lint && yarn run compile",
+    "compile": "tsc --build tsconfig.json",
+    "lint": "eslint --ignore-path .gitignore \"**/*.+(ts|js)\"",
+    "lint:fix": "eslint --ignore-path .gitignore \"**/*.+(ts|js)\" --fix",
+    "start": "node dist/index.js",
+    "start:dev": "ts-node -r dotenv/config src/index.ts"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": "@hazmi35/eslint-config/typescript/node"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "date-fns": "^2.16.1",
+    "discord.js": "^12.3.1",
+    "got": "^11.6.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "@hazmi35/eslint-config": "^1.6.1",
+    "@types/node": "^14.10.1",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.9.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
