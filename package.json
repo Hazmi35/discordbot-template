@@ -24,17 +24,17 @@
   "dependencies": {
     "date-fns": "^2.16.1",
     "discord.js": "^12.3.1",
-    "got": "^11.6.2",
+    "got": "^11.7.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
     "@hazmi35/eslint-config": "^1.6.1",
-    "@types/node": "^14.11.1",
-    "@typescript-eslint/eslint-plugin": "^4.1.1",
-    "@typescript-eslint/parser": "^4.1.1",
+    "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.2.0",
+    "@typescript-eslint/parser": "^4.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.3"
   }
 }
