@@ -34,7 +34,7 @@ export function createLogger(prod = false): winston.Logger {
                 return `${prefix}: ${message}`;
             }),
             winston.format.align(),
-            winston.format.colorize({ all: true })
+            prod ? winston.format.colorize({ all: false }) : winston.format.colorize({ all: true })
         )
     }));
     return logger;
