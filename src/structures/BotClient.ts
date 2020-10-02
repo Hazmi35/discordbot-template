@@ -9,9 +9,6 @@ export class BotClient extends Client {
     public readonly httpClient = got;
     public readonly logger = createLogger(this.config.isProd);
     // @ts-expect-error override
-    public listeners: ListenerManager;
-    public constructor(options?: ClientOptions) {
-        super(options);
-        this.listeners = new ListenerManager(this);
-    }
+    public listeners = new ListenerManager(this);;
+    public constructor(options?: ClientOptions) { super(options); }
 }
