@@ -1,5 +1,5 @@
-import { ClientEvents } from "discord.js";
-import { BotClient } from "../structures/BotClient";
+import type { ClientEvents } from "discord.js";
+import type { BotClient } from "../structures/BotClient";
 import { promises as fs } from "fs";
 import { resolve } from "path";
 import { lastIndex } from "../utils/Arrays";
