@@ -1,4 +1,4 @@
-import { ClientOptions, ClientPresenceStatus, UserResolvable } from "discord.js";
+import type { ClientOptions, ClientPresenceStatus, UserResolvable } from "discord.js";
 
 export const defaultPrefix = "$";
 export const devs: UserResolvable[] = ["290159952784392202"];

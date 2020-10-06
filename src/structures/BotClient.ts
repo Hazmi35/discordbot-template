@@ -1,5 +1,6 @@
 import config from "../config";
-import { Client, ClientOptions } from "discord.js";
+import type { ClientOptions } from "discord.js";
+import { Client } from "discord.js";
 import got from "got";
 import { createLogger } from "../utils/Logger";
 import { ListenerManager } from "../managers/ListenerManagers";
