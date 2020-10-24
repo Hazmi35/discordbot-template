@@ -44,5 +44,8 @@
     "libsodium-wrappers": "^0.7.8",
     "utf-8-validate": "^5.0.2",
     "zlib-sync": "^0.1.7"
+  },
+  "engines": {
+    "node": ">=12.x"
   }
 }
