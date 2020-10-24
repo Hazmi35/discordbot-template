@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "date-fns": "^2.16.1",
-    "discord.js": "^12.4.0",
+    "discord.js": "^12.4.1",
     "got": "^11.8.0",
     "winston": "^3.3.3"
   },
