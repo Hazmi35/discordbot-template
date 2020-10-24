@@ -14,15 +14,8 @@
 		"importHelpers": true,
 		"incremental": true,
 		"resolveJsonModule": true,
-		"typeRoots": [
-			"node_modules/@types",
-			"src/typings"
-		]
+		"typeRoots": ["node_modules/@types", "src/typings"]
 	},
-	"exclude": [
-		"node_modules/**"
-	],
-	"include": [
-		"src/**/*"
-	]
+	"exclude": [],
+	"include": ["src/**/*"]
 }
