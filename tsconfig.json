@@ -13,6 +13,7 @@
 		"noEmitHelpers": true,
 		"importHelpers": true,
 		"incremental": true,
+		"tsBuildInfoFile": ".cache/buildcache.tsbuildinfo",
 		"resolveJsonModule": true,
 		"typeRoots": ["node_modules/@types", "src/typings"]
 	},
