@@ -1,5 +1,6 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
     "eslint.packageManager": "yarn",
-    "npm.packageManager": "yarn"
+    "npm.packageManager": "yarn",
+    "files.eol": "\n"
 }
