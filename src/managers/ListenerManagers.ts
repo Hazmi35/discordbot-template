@@ -8,13 +8,13 @@ export class ListenerManager {
     public constructor(public client: BotClient) {}
 
     public add(listener: IListener): IListener {
-        this.client.logger.info(`Listener for event "${listener.name!.toString()}" is added & registered`);
+        this.client.logger.info(`Listener for event "${listener.name?.toString() as string}" is added & registered`);
         this.client.addListener(listener.name!, (...args) => listener.execute(...args));
         return listener;
     }
 
     public remove(listener: IListener): boolean {
-        this.client.logger.info(`Listener for event "${listener.name!.toString()} is removed`);
+        this.client.logger.info(`Listener for event "${listener.name?.toString() as string} is removed`);
         this.client.removeListener(listener.name!, (...args) => listener.execute(...args));
         return true;
     }
