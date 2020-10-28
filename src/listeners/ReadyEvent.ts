@@ -1,5 +1,5 @@
 import { DiscordEvent } from "../decorators";
-import type { IListener } from "../managers/ListenerManagers";
+import type { IListener } from "../managers/ListenerManager";
 import type { BotClient } from "../structures/BotClient";
 
 @DiscordEvent("ready")

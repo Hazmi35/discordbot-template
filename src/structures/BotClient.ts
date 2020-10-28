@@ -3,7 +3,7 @@ import type { ClientOptions } from "discord.js";
 import { Client } from "discord.js";
 import got from "got";
 import { createLogger } from "../utils/Logger";
-import { ListenerManager } from "../managers/ListenerManagers";
+import { ListenerManager } from "../managers/ListenerManager";
 
 export class BotClient extends Client {
     public readonly config = config;
