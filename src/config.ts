@@ -1,13 +1,20 @@
+import { Intents } from "discord.js";
 import type { ClientOptions, ClientPresenceStatus, UserResolvable } from "discord.js";
 
 export const defaultPrefix = "$";
 export const devs: UserResolvable[] = ["290159952784392202"];
-export const clientOptions: ClientOptions = {
-    disableMentions: "everyone",
-    messageCacheLifetime: 1800,
+export const clientOptions: ClientOptions = { // https://discord.js.org/#/docs/main/stable/typedef/ClientOptions
+    disableMentions: "everyone",    // NOTE: Please configure these after you're using this template,
+    fetchAllMembers: false,       // especially disableMentions, fetchAllMembers, messageCacheLifetime, messageSweepInterval, and Intents
+    messageCacheLifetime: 1800, // and the other one if you want to configure them too, but mostly, disableMentions to Intents should do
     messageCacheMaxSize: Infinity,
+    messageEditHistoryMaxSize: Infinity,
     messageSweepInterval: 300,
-    restRequestTimeout: 60000
+    restTimeOffset: 300,
+    retryLimit: 3,
+    ws: {
+        intents: [Intents.ALL] // NOTE: Please use Intents that you will only need
+    }
 };
 export const isProd = process.env.NODE_ENV === "production";
 export const isDev = !isProd;
