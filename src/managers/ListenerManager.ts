@@ -20,23 +20,20 @@ export class ListenerManager {
     }
 
     public async load(path: string): Promise<IListener | any> {
-        if (!(await fs.stat(path)).isFile()) return this.client.logger.error("LOAD_LISTENER_WRONG_PATH:", new Error("Specified path is not a file"));
-        const fileName = lastIndex(path.split("/")).split(".")[0];
-        const listener = new (await import(path))[fileName](this.client);
+        const resolvedPath = resolve(path);
+        if (!(await fs.stat(resolvedPath)).isFile()) return this.client.logger.error("LOAD_LISTENER_NOT_A_FILE:", new Error("Specified path is not a file"));
+        const fileName = lastIndex(resolvedPath.split("/")).split(".")[0];
+        const listener = new (await import(resolvedPath))[fileName](this.client);
         if (listener === undefined) return this.client.logger.error("LOAD_LISTENER_FILE_NOT_VALID:", new Error(`File ${fileName} is not a valid listener.`));
         return this.add(listener);
     }
 
     public async loadDirectory(path: string): Promise<IListener[] | any> {
-        if (!(await fs.stat(path)).isDirectory()) return this.client.logger.error("LOAD_LISTENER_WRONG_PATH:", new Error("Specified path is not a directory"));
-        const files = await fs.readdir(path);
+        const resolvedPath = resolve(path);
+        if (!(await fs.stat(resolvedPath)).isDirectory()) return this.client.logger.error("LOAD_LISTENER_NOT_A_DIR:", new Error("Specified path is not a directory"));
+        const files = await fs.readdir(resolvedPath);
         const listeners = [];
-        for (const file of files) {
-            const fileName = file.split(".")[0];
-            const listener = new (await import(resolve(path, file)))[fileName](this.client);
-            if (listener === undefined) return this.client.logger.error("LOAD_LISTENER_FILE_NOT_VALID:", new Error(`File ${fileName} is not a valid listener.`));
-            listeners.push(this.add(listener));
-        }
+        for (const file of files) { listeners.push(await this.load(resolve(resolvedPath, file))); }
         return listeners;
     }
 }
