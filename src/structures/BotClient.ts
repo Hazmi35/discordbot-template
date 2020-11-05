@@ -1,4 +1,4 @@
-import config from "../config";
+import * as config from "../config";
 import { Client, ClientOptions } from "discord.js";
 import got from "got";
 import { createLogger } from "../utils/Logger";

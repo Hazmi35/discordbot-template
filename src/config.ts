@@ -29,5 +29,3 @@ export const presenceData = {
     status: ["online"] as ClientPresenceStatus[],
     interval: 60000
 };
-
-export default { clientOptions, defaultPrefix, devs, isDev, isProd, prefix, presenceData };
