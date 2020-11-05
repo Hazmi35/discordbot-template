@@ -1,6 +1,6 @@
 import { DiscordEvent } from "../decorators";
-import type { IListener } from "../managers/ListenerManager";
-import type { BotClient } from "../structures/BotClient";
+import { IListener } from "../managers/ListenerManager";
+import { BotClient } from "../structures/BotClient";
 
 @DiscordEvent("ready")
 export class ReadyEvent implements IListener {

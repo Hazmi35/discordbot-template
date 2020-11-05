@@ -1,5 +1,5 @@
-import type { IListener } from "../managers/ListenerManager";
-import type { BotClient } from "../structures/BotClient";
+import { IListener } from "../managers/ListenerManager";
+import { BotClient } from "../structures/BotClient";
 
 export * from "./PropertyModifier";
 
