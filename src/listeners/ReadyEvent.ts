@@ -1,4 +1,4 @@
-import { DiscordEvent } from "../decorators";
+import { DiscordEvent } from "../utils/decorators";
 import { IListener } from "../managers/ListenerManager";
 import { BotClient } from "../structures/BotClient";
 
