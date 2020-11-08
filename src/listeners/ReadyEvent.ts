@@ -4,7 +4,7 @@ import { BotClient } from "../structures/BotClient";
 
 @DiscordEvent("ready")
 export class ReadyEvent implements IListener {
-    public constructor(public client: BotClient, public name?: IListener["name"]) {}
+    public constructor(public client: BotClient, public name: IListener["name"]) {}
 
     public async execute(): Promise<void> {
         await this.client.user?.setPresence({ activity: { name: this.formatString(this.client.config.presenceData.activities[0]), type: "PLAYING" }, status: this.client.config.presenceData.status[0] });
