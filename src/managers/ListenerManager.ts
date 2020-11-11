@@ -1,8 +1,7 @@
 import { ClientEvents } from "discord.js";
 import { BotClient } from "../structures/BotClient";
 import { promises as fs } from "fs";
-import { resolve } from "path";
-import { lastIndex } from "../utils/Arrays";
+import { resolve, parse } from "path";
 
 export class ListenerManager {
     public constructor(public client: BotClient) {}
@@ -22,10 +21,9 @@ export class ListenerManager {
     public async load(path: string): Promise<IListener | any> {
         const resolvedPath = resolve(path);
         if (!(await fs.stat(resolvedPath)).isFile()) return this.client.logger.error("LOAD_LISTENER_NOT_A_FILE:", new Error("Target path is not a file"));
-        const fileName = lastIndex(resolvedPath.split("/")).split(".")[0];
         const listener = await this.import(resolvedPath, this.client);
-        listener!.path = resolvedPath;
-        if (listener === undefined) return this.client.logger.error("LOAD_LISTENER_FILE_NOT_VALID:", new Error(`File ${fileName} is not a valid listener.`));
+        if (listener === undefined) return this.client.logger.error("LOAD_LISTENER_FILE_NOT_VALID:", new Error(`File ${parse(resolvedPath).name} is not a valid listener.`));
+        listener.path = resolvedPath;
         return this.add(listener);
     }
 
@@ -39,9 +37,8 @@ export class ListenerManager {
     }
 
     private async import(path: string, ...args: any[]): Promise<IListener | undefined> {
-        const resolvedPath = resolve(path);
-        const fileName = lastIndex(resolvedPath.split("/")).split(".")[0];
-        return new (await import(resolvedPath))[fileName](...args);
+        const file = (await import(path))[parse(path).name];
+        return file ? new file(...args) : undefined;
     }
 }
 
