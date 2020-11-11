@@ -1,11 +1,8 @@
 import { DiscordEvent } from "../utils/decorators";
-import { IListener } from "../managers/ListenerManager";
-import { BotClient } from "../structures/BotClient";
+import { BaseListener } from "../structures/BaseListener";
 
 @DiscordEvent("ready")
-export class ReadyEvent implements IListener {
-    public constructor(public client: BotClient, public name: IListener["name"]) {}
-
+export class ReadyEvent extends BaseListener {
     public async execute(): Promise<void> {
         await this.client.user?.setPresence({ activity: { name: this.formatString(this.client.config.presenceData.activities[0]), type: "PLAYING" }, status: this.client.config.presenceData.status[0] });
         this.client.logger.info(this.formatString("{username} is ready to serve {users.size} users on {guilds.size} guilds in " +
