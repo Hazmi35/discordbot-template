@@ -1,12 +1,13 @@
 FROM node:14-alpine as build-stage
 
+# NOTE: Change these as you want
 LABEL name "discordbot-template (build-stage)"
 LABEL maintainer "Hazmi35 <contact@hzmi.xyz>"
 
 WORKDIR /tmp/build
 
 # Install build tools for node-gyp
-RUN apk add --no-cache build-base curl git python3
+RUN apk add --no-cache build-base git python3
 
 # Copy package.json and yarn.lock
 COPY package.json .
@@ -27,6 +28,7 @@ RUN yarn install --production
 # Get ready for production
 FROM node:14-alpine
 
+# NOTE: Change these as you want
 LABEL name "discordbot-template"
 LABEL maintainer "Hazmi35 <contact@hzmi.xyz>"
 
