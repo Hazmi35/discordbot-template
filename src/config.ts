@@ -1,7 +1,7 @@
 import { ClientOptions, ClientPresenceStatus, Intents, UserResolvable } from "discord.js";
 
 export const defaultPrefix = "$";
-export const devs: UserResolvable[] = ["290159952784392202"];
+export const devs: UserResolvable[] = ["290159952784392202"]; // NOTE: Please change this
 export const clientOptions: ClientOptions = { // https://discord.js.org/#/docs/main/stable/typedef/ClientOptions
     disableMentions: "everyone",    // NOTE: Please configure these after you're using this template,
     fetchAllMembers: false,       // especially disableMentions, fetchAllMembers, messageCacheLifetime, messageSweepInterval, and Intents
