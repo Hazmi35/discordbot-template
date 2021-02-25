@@ -22,7 +22,7 @@ export class ListenerManager {
         const resolvedPath = resolve(path);
         if (!(await fs.stat(resolvedPath)).isFile()) return this.client.logger.error("LOAD_LISTENER_NOT_A_FILE:", new Error("Target path is not a file"));
         const listener = await this.import(resolvedPath, this.client);
-        if (listener === undefined) return this.client.logger.error("LOAD_LISTENER_FILE_NOT_VALID:", new Error(`File ${parse(resolvedPath).name} is not a valid listener.`));
+        if (listener === undefined) return this.client.logger.error("LOAD_LISTENER_FILE_NOT_VALID:", new Error(`File ${parse(resolvedPath).name} is not a valid listener file.`));
         listener.path = resolvedPath;
         return this.add(listener);
     }
