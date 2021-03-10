@@ -84,10 +84,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@hazmi35/eslint-config@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@hazmi35/eslint-config/-/eslint-config-3.5.0.tgz#cac56dcc416271b0d109dd75e011fc53e74259f8"
-  integrity sha512-f0B668qDC9RSQdgNmB+p2QkmKKdjZlR/EgYKI6/MeZF8nnfJIgu64R3VyxrgFS/5V1td3724gORw2dIsTrnyVQ==
+"@hazmi35/eslint-config@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@hazmi35/eslint-config/-/eslint-config-3.6.0.tgz#0c5ace355d82f129f483fb825cff26ee0ede561b"
+  integrity sha512-IThLzFl74EkGjcrSMK0k7WqU9J9m7GQyzAjYJcNnfsQ/w3AuWlbck6SkKbYkTnfGUzJ3EGjNaX2r3WusVbmhkw==
 
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
