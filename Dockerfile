@@ -9,21 +9,21 @@ WORKDIR /tmp/build
 # Install build tools for node-gyp
 RUN apk add --no-cache build-base git python3
 
-# Copy package.json and yarn.lock
+# Copy package.json and package-lock.json
 COPY package.json .
-COPY yarn.lock .
+COPY package-lock.json .
 
 # Install node dependencies
-RUN yarn install
+RUN npm install
 
 # Now copy project files
 COPY . .
 
 # Build typescript project
-RUN yarn run build
+RUN npm run build
 
 # Prune dev dependencies
-RUN yarn install --production
+RUN npm prune --production
 
 # Get ready for production
 FROM node:14-alpine
@@ -39,7 +39,7 @@ RUN apk add --no-cache tzdata
 
 # Copy needed project files
 COPY --from=build-stage /tmp/build/package.json .
-COPY --from=build-stage /tmp/build/yarn.lock .
+COPY --from=build-stage /tmp/build/package-lock.json .
 COPY --from=build-stage /tmp/build/node_modules ./node_modules
 COPY --from=build-stage /tmp/build/dist .
 
