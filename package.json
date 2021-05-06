@@ -22,7 +22,7 @@
     "extends": "@hazmi35/eslint-config/typescript/node"
   },
   "dependencies": {
-    "date-fns": "^2.21.1",
+    "date-fns": "^2.21.2",
     "discord.js": "^12.5.3",
     "got": "^11.8.2",
     "tslib": "^2.2.0",
